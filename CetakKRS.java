@@ -1,17 +1,17 @@
 package KrsOOP;
 
 public class CetakKRS {
-    public static void cetakKRS(String namaMahasiswa, String nim, String[] arrayMatkul, int[] jumlahSks, int totalSks) {
+    public static void cetakKRS(String namaMahasiswa, String nim, String[] arrayMatkul, String[] kodeMatkulArray, int[] jumlahSks, int totalSks) {
         System.out.println("===== KARTU RENCANA STUDI =====");
         System.out.println("Nama Mahasiswa: " + namaMahasiswa);
         System.out.println("NIM: " + nim);
         System.out.println("-------------------------------");
-        System.out.printf("%-30s %s%n", "Mata Kuliah", "Jumlah SKS");
+        System.out.printf("%-10s %-20s %s%n", "Kode", "Mata Kuliah", "Jumlah SKS");
         System.out.println("-------------------------------");
 
-        int count = Math.min(arrayMatkul != null ? arrayMatkul.length : 0, jumlahSks != null ? jumlahSks.length : 0);
+        int count = Math.min(Math.min(arrayMatkul != null ? arrayMatkul.length : 0, kodeMatkulArray != null ? kodeMatkulArray.length : 0), jumlahSks != null ? jumlahSks.length : 0);
         for (int i = 0; i < count; i++) {
-            System.out.printf("%-30s %d%n", arrayMatkul[i], jumlahSks[i]);
+            System.out.printf("%-10s %-20s %d%n", kodeMatkulArray[i], arrayMatkul[i], jumlahSks[i]);
         }
         if (count == 0) {
             System.out.println("(Tidak ada mata kuliah yang tercatat)");

@@ -17,6 +17,7 @@ public class InputKRS {
 
     int totalSks = 0;
     ArrayList<String> matkulList = new ArrayList<>();
+    ArrayList<String> kodeMatkulList = new ArrayList<>();
     ArrayList<Integer> sksList = new ArrayList<>();
 
     while (true) {
@@ -27,6 +28,13 @@ public class InputKRS {
         }
         if (namaMatkul.isEmpty()){
             System.out.println("Nama mata kuliah tidak boleh kosong. Silahkan coba lagi.");
+            continue;
+        }
+
+        System.out.print("Masukkan kode mata kuliah untuk " + namaMatkul + ": ");
+        String kodeMatkul = in.nextLine().trim();
+        if (kodeMatkul.isEmpty()){
+            System.out.println("Kode mata kuliah tidak boleh kosong. Silahkan coba lagi.");
             continue;
         }
 
@@ -52,11 +60,13 @@ public class InputKRS {
             return null;
         }
 
+        kodeMatkulList.add(kodeMatkul);
         matkulList.add(namaMatkul);
         sksList.add(sks);
         System.out.println("Total SKS sementara: " + totalSks);
     }
-
+    
+    String[] kodeMatkulArray = kodeMatkulList.toArray(new String[0]);
     String[] arrayMatkul = matkulList.toArray(new String[0]);
     int[] jumlahSks = new int[sksList.size()];
     for (int i = 0; i < sksList.size(); i++) {
@@ -65,6 +75,6 @@ public class InputKRS {
 
     in.close();
 
-    return new ProsesInput(namaMahasiswa, nim, arrayMatkul, jumlahSks, totalSks);
+    return new ProsesInput(namaMahasiswa, nim, arrayMatkul, kodeMatkulArray, jumlahSks, totalSks);
     }
 }

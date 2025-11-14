@@ -10,6 +10,6 @@ public class Main {
             return;
         }
 
-        CetakKRS.cetakKRS(t.namaMahasiswa, t.nim, t.arrayMatkul, t.jumlahSks, t.totalSks);
+        CetakKRS.cetakKRS(t.namaMahasiswa, t.nim, t.arrayMatkul, t.kodeMatkulArray, t.jumlahSks, t.totalSks);
     }
 }
